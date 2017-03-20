@@ -1,33 +1,27 @@
 ﻿$(document).ready(function () {
     var addAnswerButton = document.getElementById("add-answer-button"),
+        answerDiv = document.getElementById("answers-box"),
+        nextId = 0,
+        answerHtmlTemplate = "";
 
-        answerDiv = document.getElementById("answer-div"),
-        nextId=0;
+    addAnswerButton.addEventListener("click", function () {
+        var newAnswerDiv = document.createElement("div"),
+            thisId= nextId++;
 
-    //var panelTemplate = 
-    var panelTemplate = '<div class="form-group">' +
-                    '<label for="Answers[{{index}}].Id"> Id </label>' +
-                    '<input type="text" class="form-control" name="Answers[{{index}}].Id" id="Answers[{{index}}].Id" value="{{index}}" />' +
-                '</div>' +
+        newAnswerDiv.innerHTML = answerHtmlTemplate.replace(new ReqExp("{{id}",'g'), thisId);
 
-                '<div class="form-group">' +
-                    '<label for="Answers[{{index}}].Content">Content </label>' +
-                    '<input type="text" class="form-control" name="Answers[{{index}}].Content" id="Answers[{{index}}].Content" />' +
-                '</div>' +
+        answerDiv.appendChild(newAnswerDiv);
+    });
 
-                '<div class="form-group">' +
-                    '<label for="Answers[{{index}}].IsCorrect">Is Correct </label>' +
-                    '<input type="checkbox" name="Answers[{{index}}].IsCorrect" id="Answers[{{index}}].IsCorrect" value="true" />' +
-                    '<input type="hidden" name="Answers[{{index}}].IsCorrect" id="Answers[{{index}}].IsCorrect" value="false" />' +
-                '</div>';
-    
-        addAnswerButton.addEventListener("click", function () {
-        
-        var newAnswerHtml = panelTemplate.replace(/{{index}}/g, nextId++);
-        var newAnswerDiv = document.createElement("div");
-        newAnswerDiv.classList.add("panel");
-        newAnswerDiv.innerHTML = newAnswerHtml;
-
-    answerDiv.appendChild(newAnswerDiv);
-});
+    answerHtmlTemplate = '<div>' +
+         '<div>' +
+        '    <label for="Answers[{{id}}].Content" class="control-label">Content:</label>' +
+        '    <textarea id="Answers[{{id}}].Content" name="Answers[{{id}}].Content" class="form-control" ></textarea>' +
+        '</div>' +
+        '<div>' +
+        '    <label for="Answers[{{id}}].IsCorrect" class="control-label">Is Correct:</label>' +
+        '   <input type="checkbox" id="Answers[{{id}}].IsCorrect" name="Answers[{{id}}].IsCorrect" value="true" class="form-control" />' +
+        '    <input type="hidden" id="Answers[{{id}}].IsCorrect" name="Answers[{{id}}].IsCorrect" value="false" />' +
+        '</div>' +
+        '</div>';
 });

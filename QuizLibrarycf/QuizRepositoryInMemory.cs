@@ -59,9 +59,9 @@ namespace QuizLibrarycf
             _questionList.Add(updateQuestion);
         }
         //get a single question
-        public Question GetQuestion()
+        public QuestionViewModel GetQuestion()
         {
-            return GetQuestions(1)[0];
+            return new QuestionViewModel(GetQuestions(1)[0]);
         }
         //add a question
         public void AddQuestion(Question newQuestion)

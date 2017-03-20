@@ -12,6 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
+        
         <h4>QuizQuestion</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -49,6 +50,7 @@
             </div>
         </div>
 
+
         <div class="form-group">
             @Html.LabelFor(model => model.QuestionType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -64,33 +66,40 @@
                 @Html.ValidationMessageFor(model => model.ReasonForAnswer, "", new { @class = "text-danger" })
             </div>
         </div>
+    
+        <div class="col-md-6">
+            <h4>Answers</h4>
+            <hr />
 
-        <div>
-            @foreach (var answer in Model.Answers)
+            <button type="button" id="add-answer-button" class="btn btn-success">+</button>
+            <div>
+                @for (int i = 0; i < Model.Answers.Count; i++)
                 {
-                <div class="form-group">
-                    @*
+                    <input type="hidden" name="Answers[@i].AnswerId" id="Answers[@i].AnswerId" value="@Model.Answers.ElementAt(i).AnswerId" />
+                    <input type="hidden" name="Answers[@i].QuestionId" id="Answers[@i].AnswerId" value="@Model.Answers.ElementAt(i).QuestionId" />
                     <div>
-                        <label for="answers[@answer.Id].content">content</label>
-                        <input id="answers[@answer.Id].content" name="answers[@answer.Id].content" value="@answer.Content"/>
-                    </div>*@
-
-                    @Html.LabelFor(model => model.Answers, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Answers, new { htmlattributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Answers, "", new { @class = "text-danger" })
+                        <label for="Answers[@i].Content" class="control-label">Content:</label>
+                        <textarea id="Answers[@i].Content" name="Answers[@i].Content" class="form-control">@Model.Answers.ElementAt(i).Content</textarea>
                     </div>
-                 
-                </div>
-            }
-        </div>
+                    <div>
+                        <label for="Answers[@i].IsCorrect" class="control-label">Is Correct:</label>
+                        @*@Html.CheckBoxFor(a => @Model.Answers.ElementAt(i).IsCorrect, new { name = "Answers[" + i + "].IsCorrect", id = "Answers[" + i + "].IsCorrect" })*@
+                        @Html.CheckBox("Answers[" + i + "].IsCorrect", Model.Answers.ElementAt(i).isCorrect)
+                    </div>
+                }
+            </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>i
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
         </div>
-    </div>
+            </div>
+
+
+
+
 }
 
 <div>

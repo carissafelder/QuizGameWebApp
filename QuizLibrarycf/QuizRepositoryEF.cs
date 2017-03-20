@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace QuizLibrarycf
 {
     public class QuizRepositoryEF : IQuizRepository
     {
+        private static Random _randy = new Random();
+            
+            
         public void AddQuestion(Question newQuestion)
         {
             using (var db = new QuizModel())
@@ -27,9 +31,16 @@ namespace QuizLibrarycf
             }
         }
 
-        public Question GetQuestion()
+        public QuestionViewModel GetQuestion()
         {
-            throw new NotImplementedException();
+            using (var db = new QuizModel())
+            {
+                var qList = db.Questions
+                    .Include(j => j.Answers)
+                    .ToList();
+
+                return new QuestionViewModel(qList[_randy.Next(0, qList.Count)]);
+            }
         }
 
         public Question GetQuestionById(int id)

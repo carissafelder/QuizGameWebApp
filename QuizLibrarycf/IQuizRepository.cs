@@ -6,7 +6,7 @@ namespace QuizLibrarycf
     {
         void AddQuestion(Question newQuestion);
         void DeleteQuestion(int id);
-        Question GetQuestion();
+        QuestionViewModel GetQuestion();
         Question GetQuestionById(int id);
         List<Question> GetQuestions();
         List<Question> GetQuestions(int maxNumberOfQuestions);

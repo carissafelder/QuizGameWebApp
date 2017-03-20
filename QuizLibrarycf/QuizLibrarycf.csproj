@@ -67,8 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs" />
+    <Compile Include="AnswerResults.cs" />
+    <Compile Include="AnswerSubmission.cs" />
+    <Compile Include="AnswerViewModel.cs" />
     <Compile Include="IQuizRepository.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="QuestionViewModel.cs" />
     <Compile Include="QuizModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizRepositoryEF.cs" />
