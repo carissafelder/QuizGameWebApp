@@ -22,3 +22,29 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.question{
+    font-size:larger;
+    font-variant-caps: small-caps;
+    text-align:center
+}
+
+.questionBlock{
+   
+    border : 5px solid cadetblue;
+}
+
+.answer{
+    cursor: pointer; 
+    text-align:center
+}
+
+/*.answerBlock {
+
+border : 5px solid cadetblue;
+
+}*/
+
+.jubotron{
+    background-color: cadetblue;
+}
