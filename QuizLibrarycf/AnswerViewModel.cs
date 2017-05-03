@@ -14,7 +14,7 @@ namespace QuizLibrarycf
         }
     public AnswerViewModel(Answer answer)
     {
-         AnswerId = answer.AnswerId;
+        AnswerId = answer.AnswerId;
         QuestionId = answer.QuestionId;
         Content = answer.Content;
         ImageUrl = answer.ImageUrl;

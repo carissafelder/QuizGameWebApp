@@ -26,6 +26,7 @@
         $.getJSON('/api/quizquestion', function (data) {
             var questionDiv = document.createElement('div');
             questionArea.innerHTML = "";
+            quizResponse.innerText = "";
             currentQuestionId = data.QuestionId;
             questionDiv.id = currentQuestionId;
             questionDiv.classList.add("question");

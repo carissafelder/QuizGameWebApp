@@ -8,7 +8,7 @@
         var newAnswerDiv = document.createElement("div"),
             thisId= nextId++;
 
-        newAnswerDiv.innerHTML = answerHtmlTemplate.replace(new RegExp("{{id}",'g'), thisId);
+        newAnswerDiv.innerHTML = answerHtmlTemplate.replace(new RegExp("{{id}}",'g'), thisId);
 
         answerDiv.appendChild(newAnswerDiv);
     });

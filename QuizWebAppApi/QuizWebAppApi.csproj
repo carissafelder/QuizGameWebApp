@@ -172,12 +172,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Models\App_Data\App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\Models\App_Data\App_Start\FilterConfig.cs" />
+    <Compile Include="Controllers\Models\App_Data\App_Start\IdentityConfig.cs" />
+    <Compile Include="Controllers\Models\App_Data\App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Models\App_Data\App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\Models\App_Data\App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -186,9 +186,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Controllers\Models\AccountViewModels.cs" />
+    <Compile Include="Controllers\Models\IdentityModels.cs" />
+    <Compile Include="Controllers\Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -270,9 +270,7 @@
     <Content Include="Views\QuizManager\Delete.cshtml" />
     <Content Include="Views\QuizManager\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
